@@ -1,3 +1,5 @@
+<%@page import="java.sql.Connection"%>
+<%@page import="com.db.DBConnect"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -63,37 +65,47 @@ img {
 			<div class="col-md-8 p-5">
 				<div class="row">
 					<div class="col-md-6">
-						<div class="card">
+						<div class="card border shadow bg-white rounded">
 							<div class="card-body">
 								<p class="fs-5">100% Safety</p>
-								<p>lsdfjl sdfjljf sldfjslf sldfjslfj slfdjsf</p>
+								<p>Our hospital prioritizes patient safety and data
+									security. It includes robust access rights management, ensuring
+									that authorized personnel have appropriate access levels.</p>
 							</div>
 						</div>
 					</div>
 
 					<div class="col-md-6">
-						<div class="card">
+						<div class="card shadow bg-white rounded mt-2">
 							<div class="card-body">
-								<p class="fs-5">100% Safety</p>
-								<p>lsdfjl sdfjljf sldfjslf sldfjslfj slfdjsf</p>
+								<p class="fs-5">Clean Environment</p>
+								<p>Our hospital prioritizes patient safety and data
+									security. It includes robust access rights management, ensuring
+									that authorized personnel have appropriate access levels.</p>
 							</div>
 						</div>
 					</div>
 
-					<div class="col-md-6 mt-4">
-						<div class="card">
+					<div class="col-md-6">
+						<div class="card mt-3 shadow bg-white rounded">
 							<div class="card-body">
-								<p class="fs-5">100% Safety</p>
-								<p>lsdfjl sdfjljf sldfjslf sldfjslfj slfdjsf</p>
+								<p class="fs-5">Friendly Doctors</p>
+								<p>Our hospital management system prioritizes patient safety
+									and data security. It includes robust access rights management,
+									ensuring that authorized personnel have appropriate access
+									levels.</p>
 							</div>
 						</div>
 					</div>
 
-					<div class="col-md-6 mt-4">
-						<div class="card">
+					<div class="col-md-6">
+						<div class="card mt-3 shadow bg-white rounded">
 							<div class="card-body">
-								<p class="fs-5">100% Safety</p>
-								<p>lsdfjl sdfjljf sldfjslf sldfjslfj slfdjsf</p>
+								<p class="fs-5">Medical Research</p>
+								<p>Our hospital management system prioritizes patient safety
+									and data security. It includes robust access rights management,
+									ensuring that authorized personnel have appropriate access
+									levels.</p>
 							</div>
 						</div>
 					</div>
@@ -102,10 +114,58 @@ img {
 			</div>
 
 			<div class="col-md-4">
-				<img alt="" src="img/doc.jpg" style="height:300px;">
+				<img alt="" src="img/white.jpg">
 			</div>
 
 		</div>
 	</div>
+
+	<hr>
+	<div class="container p-2">
+		<p class="text-center fs-2 mb-3">Our Team</p>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="card shadow bg-white rounded">
+					<div class="card-body text-center">
+						<img alt="" src="img/doc1.jpg" width="250px" height="300px">
+						<p class="fw-bold fs-5">John Doe</p>
+						<p class="fs-7">(CEO & Chairman)</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3">
+				<div class="card shadow bg-white rounded">
+					<div class="card-body text-center">
+						<img alt="" src="img/doc2.jpg" width="250px" max-height="300px">
+						<p class="fw-bold fs-5">John Doe</p>
+						<p class="fs-7">(CEO & Chairman)</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3">
+				<div class="card shadow bg-white rounded">
+					<div class="card-body text-center">
+						<img alt="" src="img/doc3.jpg" width="250px" height="300px">
+						<p class="fw-bold fs-5">John Doe</p>
+						<p class="fs-7">(CEO & Chairman)</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-3">
+				<div class="card shadow bg-white rounded">
+					<div class="card-body text-center">
+						<img alt="" src="img/doc4.jpg" width="250px" height="300px">
+						<p class="fw-bold fs-5">John Doe</p>
+						<p class="fs-7">(CEO & Chairman)</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<%@ include file="components/footer.jsp" %>
 </body>
 </html>
