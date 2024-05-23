@@ -1,13 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page isELIgnored="false"%>
-<c:if test="${empty adminobj}">
-    <c:redirect url="../admin_login.jsp" />
-</c:if>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin Panel</title>
+<title>User Panel</title>
 
 <%@include file="../components/css.jsp"%>
 <%@ include file="../components/allcss.jsp"%>

@@ -76,7 +76,7 @@ img {
 					</div>
 
 					<div class="col-md-6">
-						<div class="card shadow bg-white rounded mt-2">
+						<div class="card shadow bg-white rounded ">
 							<div class="card-body">
 								<p class="fs-5">Clean Environment</p>
 								<p>Our hospital prioritizes patient safety and data

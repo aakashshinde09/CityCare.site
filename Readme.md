@@ -1,7 +1,8 @@
 create schema / database name : citycare
 
-First Create a User Table
-query to create the table is
+First Create a Table for User Details.
+
+Query to create the table is given below.
 
 CREATE TABLE `citycare`.`user_dtls` (
   `id` INT NOT NULL AUTO_INCREMENT,

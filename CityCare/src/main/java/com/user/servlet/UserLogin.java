@@ -1,4 +1,4 @@
-package com.admin.servlet;
+package com.user.servlet;
 
 import java.io.IOException;
 
@@ -9,10 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dao.UserDao;
+import com.db.DBConnect;
 import com.entity.User;
 
-@WebServlet("/adminLogin")
-public class AdminLogin extends HttpServlet{
+@WebServlet("/userLogin")
+public class UserLogin extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,13 +27,17 @@ public class AdminLogin extends HttpServlet{
 			
 			HttpSession session = req.getSession();
 			
-			if("admin@gmail.com".equals(email) && "admin".equals(password)) {
-				session.setAttribute("adminobj", new User());
-				resp.sendRedirect("admin/index.jsp");
+			UserDao dao = new UserDao(DBConnect.getConn());
+			User user = dao.login(email, password);
+			
+			if(user != null) {
+				session.setAttribute("userobj", user);
+				resp.sendRedirect("index.jsp");
+				System.out.println("User logged in: " + user);
 			}
 			else {
 				session.setAttribute("error", "Invalid email or password");
-				resp.sendRedirect("admin_login.jsp");
+				resp.sendRedirect("user_login.jsp");
 				}
 		} catch (Exception e) {
 			// TODO: handle exception
