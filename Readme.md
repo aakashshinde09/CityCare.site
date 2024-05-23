@@ -11,3 +11,11 @@ CREATE TABLE `citycare`.`user_dtls` (
   `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`));
 
+Now we need a table named specialist.
+
+Query to create the table is given below.
+
+CREATE TABLE specialist (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `spec_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`));
