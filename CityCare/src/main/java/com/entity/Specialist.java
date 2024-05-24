@@ -9,9 +9,9 @@ public class Specialist {
 
 	private int id;
 	private String specName;
-	public Specialist(int id, String specName) {
+	public Specialist(String specName) {
 		super();
-		this.id = id;
+		
 		this.specName = specName;
 	}
 	public Specialist() {

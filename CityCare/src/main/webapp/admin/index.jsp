@@ -39,6 +39,13 @@
 					class="text-sm">Doctors</span>
 			</a></li>
 
+			<li class="mb-1 group"><a href="show_doctors.jsp"
+				class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+					<i class="fa-solid fa-user-doctor mr-3 text-lg"></i> <span
+					class="text-sm">All Doctors</span>
+			</a></li>
+
+
 			<li class="mb-1 group"><a href=""
 				class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
 					<i class="bx bx-user mr-3 text-lg"></i> <span class="text-sm">Users</span>

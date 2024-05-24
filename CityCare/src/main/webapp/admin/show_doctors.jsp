@@ -1,7 +1,7 @@
-<%@page import="com.entity.Specialist"%>
+<%@page import="com.entity.Doctor"%>
 <%@page import="java.util.List"%>
 <%@page import="com.db.DBConnect"%>
-<%@page import="com.dao.SpecialistDAO"%>
+<%@page import="com.dao.DoctorDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -37,13 +37,13 @@
 			</a></li>
 
 			<li class="mb-1 group"><a href="add_doctor.jsp"
-				class="flex font-semibold items-center py-2 px-4 bg-gray-950 text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+				class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
 					<i class="fa-solid fa-user-doctor mr-3 text-lg"></i> <span
 					class="text-sm">Doctors</span>
 			</a></li>
-			
+
 			<li class="mb-1 group"><a href="show_doctors.jsp"
-				class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+				class="flex font-semibold items-center py-2 px-4 bg-gray-950 text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
 					<i class="fa-solid fa-user-doctor mr-3 text-lg"></i> <span
 					class="text-sm">All Doctors</span>
 			</a></li>
@@ -153,111 +153,106 @@
 
 		<!-- Content -->
 		<div class="p-9">
-			<!-- Add doctor Form Starts -->
-			<form action="../add_doctor" method="post">
-				<div class="items-center justify-end gap-x-6">
-					<div class="border-b border-gray-900/10">
-						<p class=" fs-3">Add Doctor</p>
-						
-						<div class="mt-4 grid gap-x-6 gap-y-4 sm:grid-cols-6 ">
-							<div class="sm:col-span-2 sm:col-start-1">
-								<label for="city"
-									class="block text-sm font-medium leading-6 text-gray-900">Full
-									Name</label>
-								<div class="mt-2">
-									<input type="text" name="name" id="name" autocomplete="name"
-										class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-								</div>
-							</div>
+			<!-- show doctor table Starts -->
 
-							<div class="sm:col-span-2 sm:col-start-3">
-								<label for="region"
-									class="block text-sm font-medium leading-6 text-gray-900">Date
-									of Birth </label>
-								<div class="mt-2">
-									<input type="date" name="dob" id="dob" autocomplete="dob"
-										class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-								</div>
-							</div>
+			<!-- component -->
 
 
-							<div class="sm:col-span-2 sm:col-start-1">
-								<label for="city"
-									class="block text-sm font-medium leading-6 text-gray-900">Qualification</label>
-								<div class="mt-2">
-									<input type="text" name="qualification" id="qualification" autocomplete="qualification"
-										class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-								</div>
-							</div>
-
-							<div class="sm:col-span-3 sm:col-start-3">
-								<label for="country"
-									class="block text-sm font-medium leading-6 text-gray-900">Specialist</label>
-								<div class="mt-2">
-									<select id="specialist" name="specialist" autocomplete="specialist"
-										class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-										<option>--select--</option>
-										<%
-										SpecialistDAO dao = new SpecialistDAO(DBConnect.getConn());
-										List<Specialist> list = dao.getAllSpecialist();
-										for(Specialist s:list){
-										%>
-										<option><%=s.getSpecName() %></option>
-										<%} %>
-									</select>
-								</div>
-							</div>
 
 
-							<div class="sm:col-span-2 sm:col-start-1">
-								<label for="city"
-									class="block text-sm font-medium leading-6 text-gray-900">Email</label>
-								<div class="mt-2">
-									<input type="email" name="email" id="email" autocomplete="email"
-										class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-								</div>
-							</div>
 
-							<div class="sm:col-span-2 sm:col-start-3">
-								<label for="region"
-									class="block text-sm font-medium leading-6 text-gray-900">Mobile
-									Number </label>
-								<div class="mt-2">
-									<input type="text" name="mobile" id="mobile" autocomplete="mobile"
-										class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-								</div>
-							</div>
-
-
-							<div class="sm:col-span-2 sm:col-start-1">
-								<label for="city"
-									class="block text-sm font-medium leading-6 text-gray-900">Password</label>
-								<div class="mt-2">
-									<input type="password" name="password" id="password" autocomplete="password"
-										class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-								</div>
-							</div>
-							
-							<div class="sm:col-span-2 sm:col-start-3">
-								<div class="mt-8 flex items-center justify-end gap-x-6">
-								<button type="submit"
-									class="rounded-md block w-full bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add
-									Doctor</button>
-							</div>
-							</div>
-
-							
-						</div>
+			<div class="rounded-t mb-0 px-4 py-3 border-0 bg-white">
+				<div class="flex flex-wrap items-center">
+					<div class="relative w-full px-4 max-w-full flex-grow flex-1">
+						<h3 class="font-semibold text-base text-blueGray-700">Doctor
+							Details</h3>
+					</div>
+					<div
+						class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+						<button
+							class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+							type="button"> <a href="add_doctor.jsp">Add New Doctor</a> </button>
 					</div>
 				</div>
+			</div>
+
+			<div class="block w-full overflow-x-auto bg-white table-responsive">
+				<table
+					class="items-center bg-transparent w-full border-collapse">
+					<thead class="fs-3">
+						<tr>
+							<th
+								class="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+								Full Name</th>
+							<th
+								class="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+								Date Of Birth</th>
+							<th
+								class="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+								Qualification</th>
+							<th
+								class="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+								Specialist</th>
+							<th
+								class="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+								Email</th>
+							<th
+								class="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+								Mobile No.</th>
+							<th
+								class="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+								Password</th>
+						</tr>
+
+					</thead>
+
+					<tbody>
+
+						<%
+						DoctorDao dao2 = new DoctorDao(DBConnect.getConn());
+						List<Doctor> list = dao2.getAllDoctor();
+
+						for(Doctor d : list) {
+						%>
+						<tr>
+							<th
+								class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+								<%=d.getName() %></th>
+							<td
+								class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+								<%=d.getDob() %></td>
+							<td
+								class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+								<%=d.getQualification() %></td>
+							<th
+								class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+								<%=d.getSpecialist() %></th>
+							<td
+								class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+								<%=d.getEmail() %></td>
+							<td
+								class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+								<%=d.getMobile() %></td>
+							<td
+								class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+								<%=d.getPassword() %></td>
+
+						</tr>
+						<%
+						}
+						%>
 
 
-			</form>
+					</tbody>
 
-
-
-			<!-- Add Doctor Form End -->
+				</table>
+			</div>
 		</div>
+
+
+
+		<!-- show Doctor table End -->
+
 		<!-- End Content -->
 
 
