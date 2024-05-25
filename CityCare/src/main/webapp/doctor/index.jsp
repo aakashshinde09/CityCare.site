@@ -1,24 +1,21 @@
-<%@page import="com.entity.Specialist"%>
-<%@page import="java.util.List"%>
-<%@page import="com.db.DBConnect"%>
-<%@page import="com.dao.SpecialistDAO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page isELIgnored="false"%>
-<c:if test="${empty adminobj}">
+<c:if test="${empty doctorobj}">
 	<c:redirect url="../admin_login.jsp" />
 </c:if>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Add Doctor</title>
+<title>doctor Panel</title>
+
 <%@include file="../components/css.jsp"%>
 <%@ include file="../components/allcss.jsp"%>
 </head>
-<body>
+<body class="text-gray-800 font-inter">
 	<%@ include file="../admin/navbar.jsp"%>
+
+
 	<!--sidenav -->
 	<div
 		class="fixed left-0 top-0 w-64 h-full bg-[#f8f4f3] p-4 z-50 sidebar-menu transition-transform">
@@ -32,12 +29,12 @@
 		<ul class="mt-4">
 			<span class="text-gray-400 font-bold">ADMIN</span>
 			<li class="mb-1 group"><a href="index.jsp"
-				class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+				class="flex font-semibold items-center py-2 px-4 bg-gray-950 text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
 					<i class="ri-home-2-line mr-3 text-lg"></i> <span class="text-sm">Dashboard</span>
 			</a></li>
 
 			<li class="mb-1 group"><a href="add_doctor.jsp"
-				class="flex font-semibold items-center py-2 px-4 bg-gray-950 text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+				class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
 					<i class="fa-solid fa-user-doctor mr-3 text-lg"></i> <span
 					class="text-sm">Doctors</span>
 			</a></li>
@@ -47,6 +44,7 @@
 					<i class="fa-solid fa-user-doctor mr-3 text-lg"></i> <span
 					class="text-sm">All Doctors</span>
 			</a></li>
+
 
 			<li class="mb-1 group"><a href=""
 				class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
@@ -58,7 +56,6 @@
 					<i class="fa-solid fa-user-nurse mr-3 text-lg"></i> <span
 					class="text-sm">Specialists</span>
 			</a></li>
-			
 		</ul>
 	</div>
 	<div class="modal fade" id="exampleModal" tabindex="-1"
@@ -156,7 +153,7 @@
 						<li><a href="#"
 							class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-[#f84525] hover:bg-gray-50">Settings</a>
 						</li>
-						<li><a href="../adminLogout"
+						<li><a href="../doctorLogout"
 							class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-[#f84525] hover:bg-gray-50">Logout</a>
 						</li>
 					</ul>
@@ -167,121 +164,96 @@
 
 		<!-- end navbar -->
 
+		<c:if test="${not empty error }">
+			<p class="text-center text-danger fs-3 mt-2">${error }</p>
+			<c:remove var="error" scope="session" />
+		</c:if>
 
+		<c:if test="${not empty succmsg }">
+			<p class="text-center text-success fs-3 mt-2">${succmsg }</p>
+			<c:remove var="succmsg" scope="session" />
+		</c:if>
 
 
 		<!-- Content -->
-		<div class="p-9">
-			<!-- Add doctor Form Starts -->
+		<div class="p-6">
 			<div
-				class="mx-auto max-w-screen-md px-6 py-12 bg-gray-100 border border-gray-300 shadow-lg rounded-3xl">
-				<form action="../add_doctor" method="post">
-					<div class="border-b border-gray-300 pb-6">
-						<p class="text-xl font-semibold text-center">Add Doctor</p>
-						<c:if test="${not empty error }">
-							<p class="text-center text-danger fs-3 mt-2">${error }</p>
-							<c:remove var="error" scope="session" />
-						</c:if>
+				class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
 
-						<c:if test="${not empty succmsg }">
-							<p class="text-center text-success fs-3 mt-2">${succmsg }</p>
-							<c:remove var="succmsg" scope="session" />
-						</c:if>
-						<div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-							<div class="flex flex-col">
-								<label for="name" class="text-sm font-medium text-gray-700">Full
-									Name</label> <input type="text" name="name" id="name"
-									autocomplete="name"
-									class="form-control mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-							</div>
-
-							<div class="flex flex-col">
-								<label for="dob" class="text-sm font-medium text-gray-700">Date
-									of Birth</label> <input type="date" name="dob" id="dob"
-									autocomplete="dob"
-									class="form-control mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-							</div>
-
-							<div class="flex flex-col">
-								<label for="city"
-									class="block text-sm font-medium leading-6 text-gray-900">Qualification</label>
-								
-									<input type="text" name="qualification" id="qualification"
-										autocomplete="qualification"
-										class="form-control mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-								
-							</div>
-
-							<div class="flex flex-col">
-								<label for="country"
-									class="block text-sm font-medium leading-6 text-gray-900">Specialist</label>
-								
-									<select id="specialist" name="specialist"
-										autocomplete="specialist"
-										class="form-control mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-										<option>--select--</option>
-										<%
-										SpecialistDAO dao = new SpecialistDAO(DBConnect.getConn());
-										List<Specialist> list = dao.getAllSpecialist();
-										for (Specialist s : list) {
-										%>
-										<option><%=s.getSpecName()%></option>
-										<%
-										}
-										%>
-									</select>
-								
-							</div>
-
-
-							<div class="flex flex-col">
-								<label for="city"
-									class="block text-sm font-medium leading-6 text-gray-900">Email</label>
-								
-									<input type="email" name="email" id="email"
-										autocomplete="email"
-										class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-								
-							</div>
-
-							<div class="flex flex-col">
-								<label for="region"
-									class="block text-sm font-medium leading-6 text-gray-900">Mobile
-									Number </label>
-								
-									<input type="text" name="mobile" id="mobile"
-										autocomplete="mobile"
-										class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-								
-							</div>
-
-
-							<div class="flex flex-col">
-								<label for="city"
-									class="block text-sm font-medium leading-6 text-gray-900">Password</label>
-								
-									<input type="password" name="password" id="password"
-										autocomplete="password"
-										class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-								
-							</div>
-						</div>
+				<div
+					class="bg-white rounded-md border border-gray-100 shadow-md shadow-black/5">
+					<div class="card-body text-center">
+						<i class="fa-solid fa-user-doctor fs-2 "></i>
+						<p class="text-center fs-3">
+							Doctors <br> 5
+						</p>
 					</div>
+				</div>
 
-					<div class="mt-6">
-						<button type="submit"
-							class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add
-							Doctor</button>
+				<div
+					class="bg-white rounded-md border border-gray-100 shadow-md shadow-black/5">
+					<div class="card-body text-center">
+						<i class="fa-solid fa-user fs-2"></i>
+						<p class="text-center fs-3">
+							Users <br> 5
+						</p>
 					</div>
-				</form>
+				</div>
+
+				<div
+					class="bg-white rounded-md border border-gray-100 shadow-md shadow-black/5">
+					<div class="card-body text-center">
+						<i class="fa-solid fa-calendar-days fs-2"></i>
+						<p class="text-center fs-3">
+							Total Appointments <br> 5
+						</p>
+					</div>
+				</div>
+
+				<div data-bs-toggle="modal" data-bs-target="#exampleModal"
+					class="bg-white rounded-md border border-gray-100 shadow-md shadow-black/5">
+					<div class="card-body text-center">
+						<i class="fa-solid fa-user-nurse fs-2"></i>
+						<p class="text-center fs-3">
+							Specialists <br> 5
+						</p>
+					</div>
+				</div>
+
 			</div>
-			<!-- Add Doctor Form End -->
 		</div>
 		<!-- End Content -->
 
+		<!-- Button trigger modal -->
 
 
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form action="../addSpecialist" method="post">
+							<div class="form-group">
+								<label>Enter Specialist Name</label> <input type="text"
+									name="specName" class="form-control">
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-bs-dismiss="modal">Close</button>
+								<button type="submit" class="btn btn-primary">Add</button>
+							</div>
+						</form>
+					</div>
 
+				</div>
+			</div>
+		</div>
 	</main>
 
 	<script src="https://unpkg.com/@popperjs/core@2"></script>
@@ -490,5 +462,6 @@
 
         
     </script>
+
 </body>
 </html>

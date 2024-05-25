@@ -36,7 +36,7 @@
 					<div class="relative ml-3">
 						<div class="hidden sm:ml-6 sm:block">
 							<div class="flex space-x-4">
-								<a href="#"
+								<a href="user/user_appointment.jsp"
 									class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-3 text-sm font-medium">
 									<i class="fa-solid fa-calendar-check"></i> Appointments
 								</a> <a href="#"

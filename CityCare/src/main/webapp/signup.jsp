@@ -80,12 +80,11 @@
 						up</button>
 				</div>
 			</form>
+			<p class="mt-10  text-center text-sm text-gray-500">
+                        Already registered? <a href="user_login.jsp" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Sign In</a>
+                    </p>
 
-			<p class="mt-10 text-center text-sm text-gray-500">
-				Not a member? <a href="signup.jsp"
-					class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Sign
-					Up Now</a>
-			</p>
+			
 		</div>
 	</div>
 

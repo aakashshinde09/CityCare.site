@@ -53,13 +53,40 @@
 					<i class="bx bx-user mr-3 text-lg"></i> <span class="text-sm">Users</span>
 			</a></li>
 
-			<li class="mb-1 group"><a href=""
+			<li data-bs-toggle="modal" data-bs-target="#exampleModal" class="mb-1 group"><a
 				class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
 					<i class="fa-solid fa-user-nurse mr-3 text-lg"></i> <span
 					class="text-sm">Specialists</span>
 			</a></li>
 		</ul>
 	</div>
+	
+	<div class="modal fade" id="exampleModal" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form action="../addSpecialist" method="post">
+							<div class="form-group">
+								<label>Enter Specialist Name</label> <input type="text"
+									name="specName" class="form-control">
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-bs-dismiss="modal">Close</button>
+								<button type="submit" class="btn btn-primary">Add</button>
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
 	<div
 		class="fixed top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay"></div>
 	<!-- end sidenav -->
@@ -152,108 +179,93 @@
 
 
 		<!-- Content -->
-		<div class="p-9">
-			<!-- show doctor table Starts -->
+		
+    <!-- show doctor table Starts -->
 
-			<!-- component -->
+    <!-- component -->
 
+    <div class="rounded-t mb-0 px-4 py-3 border-0 bg-white">
+        <div class="flex flex-wrap items-center">
+            <div class="w-full max-w-full  flex-1">
+                <h3 class="font-semibold text-base text-blueGray-700">Doctor Details</h3>
+            </div>
+            <div class="relative w-full max-w-full flex-grow flex-1 text-right">
+                <button class="bg-indigo-500 text-white active:bg-indigo-600 text-sm font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+                    <a href="add_doctor.jsp">Add New Doctor</a>
+                </button>
+            </div>
+      
+        </div>
+    </div>
 
+    <div class="block w-full overflow-x-auto bg-white table-responsive">
+        <table class="items-center bg-transparent w-full border-collapse">
+            <thead class="fs-3">
+                <tr>
+                    <th class="px-3 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-sm uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Name
+                    </th>
+                    <th class="px-3 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-sm uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        DOB
+                    </th>
+                    <th class="px-3 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-sm uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Qualification
+                    </th>
+                    <th class="px-3 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-sm uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Specialist
+                    </th>
+                    <th class="px-3 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-sm uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Email
+                    </th>
+                    <th class="px-3 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-sm uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Mobile No.
+                    </th>
+                    <th class="px-3 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-sm uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Password
+                    </th>
+                    <th class="px-3 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-sm uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Action
+                    </th>
+                </tr>
+            </thead>
 
-
-
-			<div class="rounded-t mb-0 px-4 py-3 border-0 bg-white">
-				<div class="flex flex-wrap items-center">
-					<div class="relative w-full px-4 max-w-full flex-grow flex-1">
-						<h3 class="font-semibold text-base text-blueGray-700">Doctor
-							Details</h3>
-					</div>
-					<div
-						class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-						<button
-							class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-							type="button"> <a href="add_doctor.jsp">Add New Doctor</a> </button>
-					</div>
-				</div>
-			</div>
-
-			<div class="block w-full overflow-x-auto bg-white table-responsive">
-				<table
-					class="items-center bg-transparent w-full border-collapse">
-					<thead class="fs-3">
-						<tr>
-							<th
-								class="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-								Full Name</th>
-							<th
-								class="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-								Date Of Birth</th>
-							<th
-								class="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-								Qualification</th>
-							<th
-								class="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-								Specialist</th>
-							<th
-								class="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-								Email</th>
-							<th
-								class="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-								Mobile No.</th>
-							<th
-								class="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-								Password</th>
-						</tr>
-
-					</thead>
-
-					<tbody>
-
-						<%
-						DoctorDao dao2 = new DoctorDao(DBConnect.getConn());
-						List<Doctor> list = dao2.getAllDoctor();
-
-						for(Doctor d : list) {
-						%>
-						<tr>
-							<th
-								class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
-								<%=d.getName() %></th>
-							<td
-								class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
-								<%=d.getDob() %></td>
-							<td
-								class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-								<%=d.getQualification() %></td>
-							<th
-								class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
-								<%=d.getSpecialist() %></th>
-							<td
-								class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
-								<%=d.getEmail() %></td>
-							<td
-								class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-								<%=d.getMobile() %></td>
-							<td
-								class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-								<%=d.getPassword() %></td>
-
-						</tr>
-						<%
-						}
-						%>
+            <tbody>
+                <% DoctorDao dao2 = new DoctorDao(DBConnect.getConn()); List<Doctor> list = dao2.getAllDoctor(); for(Doctor d : list) { %>
+                <tr>
+                    <th class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 text-left text-blueGray-700 ">
+                        <%=d.getName() %>
+                    </th>
+                    <td class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 ">
+                        <%=d.getDob() %>
+                    </td>
+                    <td class="border-t-0 px-3 align-center border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
+                        <%=d.getQualification() %>
+                    </td>
+                    <th class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 text-left text-blueGray-700 ">
+                        <%=d.getSpecialist() %>
+                    </th>
+                    <td class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 ">
+                        <%=d.getEmail() %>
+                    </td>
+                    <td class="border-t-0 px-3 align-center border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
+                        <%=d.getMobile() %>
+                    </td>
+                    <td class="border-t-0 px-3 align-center border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
+                        <%=d.getPassword() %>
+                    </td>
+                    <td class="border-t-0 px-6 align-center border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
+                        <a href="update_doctor.jsp?id=<%=d.getId() %>" class="btn btn-sm btn-primary">Update</a>
+                        <a href="../deleteDoctor?id=<%=d.getId() %>" class="btn btn-sm btn-danger">Delete</a>
+                        
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
 
 
-					</tbody>
-
-				</table>
-			</div>
-		</div>
-
-
-
-		<!-- show Doctor table End -->
-
-		<!-- End Content -->
+<!-- show Doctor table End -->
 
 
 	</main>

@@ -51,13 +51,39 @@
 					<i class="bx bx-user mr-3 text-lg"></i> <span class="text-sm">Users</span>
 			</a></li>
 
-			<li class="mb-1 group"><a href=""
+			<li data-bs-toggle="modal" data-bs-target="#exampleModal" class="mb-1 group"><a
 				class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
 					<i class="fa-solid fa-user-nurse mr-3 text-lg"></i> <span
 					class="text-sm">Specialists</span>
 			</a></li>
 		</ul>
 	</div>
+	<div class="modal fade" id="exampleModal" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form action="../addSpecialist" method="post">
+							<div class="form-group">
+								<label>Enter Specialist Name</label> <input type="text"
+									name="specName" class="form-control">
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-bs-dismiss="modal">Close</button>
+								<button type="submit" class="btn btn-primary">Add</button>
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
 	<div
 		class="fixed top-0 left-0 w-full h-full bg-black/50 z-40 md:hidden sidebar-overlay"></div>
 	<!-- end sidenav -->
