@@ -1,49 +1,31 @@
 package com.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@Getter
-@Setter
+import lombok.Data;
+
+
+@Data
+@Entity
 public class Doctor {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String dob;
 	private String qualification;
 	private String specialist;
+	
+	@Column(unique = true)
 	private String email;
+	@Column(unique = true)
 	private String mobile;
 	private String password;
-	public Doctor(String name, String dob, String qualification, String specialist, String email, String mobile,
-			String password) {
-		super();
-		this.name = name;
-		this.dob = dob;
-		this.qualification = qualification;
-		this.specialist = specialist;
-		this.email = email;
-		this.mobile = mobile;
-		this.password = password;
-	}
-	public Doctor() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Doctor(int id, String name, String dob, String qualification, String specialist, String email, String mobile,
-			String password) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.dob = dob;
-		this.qualification = qualification;
-		this.specialist = specialist;
-		this.email = email;
-		this.mobile = mobile;
-		this.password = password;
-	}
-	
-	
 	
 	
 }

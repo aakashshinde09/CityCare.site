@@ -32,13 +32,21 @@ public class UpdateDoctor extends HttpServlet {
 			int id = Integer.parseInt(req.getParameter("id"));
 			System.out.println("This is update doctor servlet and the id is "+id);
 
-			Doctor d = new Doctor(id, name, dob, qualification, specialist, email, mobile, password);
+			Doctor doctor = new Doctor();
+			doctor.setId(id);
+            doctor.setName(name);
+            doctor.setDob(dob);
+            doctor.setQualification(qualification);
+            doctor.setSpecialist(specialist);
+            doctor.setEmail(email);
+            doctor.setMobile(mobile);
+            doctor.setPassword(password);
 
-			DoctorDao dao = new DoctorDao(DBConnect.getConn());
+			DoctorDao dao = new DoctorDao();
 
 			HttpSession session = req.getSession();
 
-			if (dao.updateDoctor(d)) {
+			if (dao.updateDoctor(doctor)) {
 				session.setAttribute("succmsg", "Doctor Updated Successfully");
 				resp.sendRedirect("admin/show_doctors.jsp");
 			} else {

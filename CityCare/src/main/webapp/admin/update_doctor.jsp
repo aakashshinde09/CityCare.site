@@ -190,7 +190,7 @@
 						<%
 						int id = Integer.parseInt(request.getParameter("id"));
 						System.out.println("ID: " + id);
-						DoctorDao dao = new DoctorDao(DBConnect.getConn());
+						DoctorDao dao = new DoctorDao();
 						Doctor d = dao.getDoctorById(id);
 						
 						%>

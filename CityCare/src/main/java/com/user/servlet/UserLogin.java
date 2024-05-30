@@ -27,7 +27,7 @@ public class UserLogin extends HttpServlet{
 			
 			HttpSession session = req.getSession();
 			
-			UserDao dao = new UserDao(DBConnect.getConn());
+			UserDao dao = new UserDao();
 			User user = dao.login(email, password);
 			
 			if(user != null) {

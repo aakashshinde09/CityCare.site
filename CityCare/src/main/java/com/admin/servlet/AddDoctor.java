@@ -31,13 +31,21 @@ public class AddDoctor extends HttpServlet {
 			String mobile = req.getParameter("mobile");
 			String password = req.getParameter("password");
 			
-			Doctor d = new Doctor(name,dob,qualification,specialist,email,mobile,password);
 			
-			DoctorDao dao = new DoctorDao(DBConnect.getConn());
+			Doctor doctor = new Doctor();
+            doctor.setName(name);
+            doctor.setDob(dob);
+            doctor.setQualification(qualification);
+            doctor.setSpecialist(specialist);
+            doctor.setEmail(email);
+            doctor.setMobile(mobile);
+            doctor.setPassword(password);
+			
+			DoctorDao dao = new DoctorDao();
 			
 			HttpSession session = req.getSession();
 			
-			if(dao.addDoctor(d)) {
+			if(dao.addDoctor(doctor)) {
 				session.setAttribute("succmsg", "Doctor Added Successfully");
 				resp.sendRedirect("admin/add_doctor.jsp");
 			}

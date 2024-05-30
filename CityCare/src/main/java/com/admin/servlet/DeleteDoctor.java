@@ -22,7 +22,7 @@ public class DeleteDoctor extends HttpServlet{
 		
 		int id = Integer.parseInt(req.getParameter("id"));
 		
-		DoctorDao dao = new DoctorDao(DBConnect.getConn());
+		DoctorDao dao = new DoctorDao();
 		HttpSession session = req.getSession();
 		
 		if(dao.deleteDoctor(id)) {

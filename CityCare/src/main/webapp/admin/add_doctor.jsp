@@ -221,8 +221,8 @@
 										class="form-control mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 										<option>--select--</option>
 										<%
-										SpecialistDAO dao = new SpecialistDAO(DBConnect.getConn());
-										List<Specialist> list = dao.getAllSpecialist();
+										SpecialistDAO dao = new SpecialistDAO();
+										List<Specialist> list = dao.getAllSpecialists();
 										for (Specialist s : list) {
 										%>
 										<option><%=s.getSpecName()%></option>

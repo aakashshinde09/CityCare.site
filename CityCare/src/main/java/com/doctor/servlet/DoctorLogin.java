@@ -29,7 +29,7 @@ public class DoctorLogin extends HttpServlet{
 			
 			HttpSession session = req.getSession();
 			
-			DoctorDao dao = new DoctorDao(DBConnect.getConn());
+			DoctorDao dao = new DoctorDao();
 			Doctor doctor = dao.login(email, password);
 			
 			if(doctor != null) {

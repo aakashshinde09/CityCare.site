@@ -26,9 +26,12 @@ public class UserRegister extends HttpServlet{
 			String email = req.getParameter("email");
 			String password = req.getParameter("password");
 			
-			User u = new User(name, email, password);
+			User u = new User();
+			u.setName(name);
+			u.setEmail(email);
+			u.setPassword(password);
 			
-			UserDao ud = new UserDao(DBConnect.getConn());
+			UserDao ud = new UserDao();
 			
 			boolean f = ud.UserRegister(u);
 			HttpSession session = req.getSession();
