@@ -15,17 +15,17 @@ public class Doctor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String name;
-	private String dob;
-	private String qualification;
-	private String specialist;
+	private int doctor_Id;
+	private String doctor_name;
+	private String doctor_dob;
+	private String doctor_qualification;
+	private String doctor_specialist;
 	
 	@Column(unique = true)
-	private String email;
+	private String doctor_email;
 	@Column(unique = true)
-	private String mobile;
-	private String password;
+	private String doctor_mobile;
+	private String doctor_password;
 	
 	
 }

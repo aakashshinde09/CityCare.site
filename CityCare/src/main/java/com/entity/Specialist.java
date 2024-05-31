@@ -14,7 +14,7 @@ public class Specialist {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int spec_Id;
 	private String specName;
 	
 }

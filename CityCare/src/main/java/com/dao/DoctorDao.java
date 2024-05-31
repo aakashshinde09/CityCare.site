@@ -69,21 +69,21 @@ public class DoctorDao {
 
         try {
             transaction.begin();
-            Doctor managedDoctor = entityManager.find(Doctor.class, doctor.getId());
+            Doctor managedDoctor = entityManager.find(Doctor.class, doctor.getDoctor_Id());
             if (managedDoctor != null) {
-                managedDoctor.setName(doctor.getName());
-                managedDoctor.setDob(doctor.getDob());
-                managedDoctor.setQualification(doctor.getQualification());
-                managedDoctor.setSpecialist(doctor.getSpecialist());
-                managedDoctor.setEmail(doctor.getEmail());
-                managedDoctor.setMobile(doctor.getMobile());
-                managedDoctor.setPassword(doctor.getPassword());
+                managedDoctor.setDoctor_name(doctor.getDoctor_name());
+                managedDoctor.setDoctor_dob(doctor.getDoctor_dob());
+                managedDoctor.setDoctor_qualification(doctor.getDoctor_qualification());
+                managedDoctor.setDoctor_specialist(doctor.getDoctor_specialist());
+                managedDoctor.setDoctor_email(doctor.getDoctor_email());
+                managedDoctor.setDoctor_mobile(doctor.getDoctor_mobile());
+                managedDoctor.setDoctor_password(doctor.getDoctor_password());
                 entityManager.merge(managedDoctor);
                 transaction.commit();
                 return true;
             } else {
                 transaction.rollback();
-                System.out.println("Doctor not found with ID: " + doctor.getId());
+                System.out.println("Doctor not found with ID: " + doctor.getDoctor_Id());
                 return false;
             }
         } catch (Exception e) {

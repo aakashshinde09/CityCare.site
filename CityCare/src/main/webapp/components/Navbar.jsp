@@ -61,7 +61,7 @@
 											</div>
 										</div>
 										<div class="p-2 md:block text-left">
-											<h2 class="text-sm font-semibold text-white">${userobj.name }</h2>
+											<h2 class="text-sm font-semibold text-white">${userobj.user_name }</h2>
 											<p class="text-xs text-gray-500">User</p>
 										</div>
 									</button>

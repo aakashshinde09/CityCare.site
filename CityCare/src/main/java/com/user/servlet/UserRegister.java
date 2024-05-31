@@ -27,9 +27,9 @@ public class UserRegister extends HttpServlet{
 			String password = req.getParameter("password");
 			
 			User u = new User();
-			u.setName(name);
-			u.setEmail(email);
-			u.setPassword(password);
+			u.setUser_name(name);;
+			u.setUser_email(email);
+			u.setUser_password(password);
 			
 			UserDao ud = new UserDao();
 			

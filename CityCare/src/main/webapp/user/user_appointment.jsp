@@ -1,3 +1,6 @@
+<%@page import="com.entity.Doctor"%>
+<%@page import="java.util.List"%>
+<%@page import="com.dao.DoctorDao"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="com.db.DBConnect"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -20,16 +23,29 @@ img {
 	align-items: center;
 	height: 90vh; /* Ensure carousel items have a fixed height */
 }
+
+.backImg{
+	background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),
+	url("../img/hospital.jpg");
+	height: 30vh;
+	width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
 </style>
 <%@ include file="../components/allcss.jsp"%>
 </head>
 <body>
 	<%@ include file="../components/Navbar.jsp"%>
+	
+	<div class="container-fluid backImg p-5">
+	<p class="text-center fs-2 text-white"></p>
+	</div>
 
 	<div class="container p-3">
 		<div class="row">
 			<div class="col-md-6 p-5">
-				<img alt="" src="">
+				<img alt="" src="../img/appoint.jpg">
 			</div>
 
 			<div class="col-md-6">
@@ -94,7 +110,18 @@ img {
 								<label for="name" class="form-label">Doctor</label> <select
 									required class="form-control" name="doctor">
 									<option value="">--select--</option>
-									<option value="">Doctor 1</option>
+									
+									<% 
+									DoctorDao dao = new DoctorDao();
+									List<Doctor> list = dao.getAllDoctors();
+										for(Doctor d : list) {
+									%>
+									
+									<option value="<%=d.getId()%>"><%=d.getName() %> (<%=d.getSpecialist() %>)</option>
+									
+									<%
+										}
+									%>
 								</select>
 							</div>
 

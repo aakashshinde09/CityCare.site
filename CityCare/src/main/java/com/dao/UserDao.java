@@ -46,9 +46,9 @@ public class UserDao {
 
         try {
             TypedQuery<User> query = entityManager.createQuery(
-                "SELECT u FROM User u WHERE u.email = :email AND u.password = :password", User.class);
-            query.setParameter("email", email);
-            query.setParameter("password", password);
+                "SELECT u FROM User u WHERE u.user_email = :user_email AND u.user_password = :user_password", User.class);
+            query.setParameter("user_email", email);
+            query.setParameter("user_password", password);
 
             List<User> resultList = query.getResultList();
             return resultList.isEmpty() ? null : resultList.get(0);

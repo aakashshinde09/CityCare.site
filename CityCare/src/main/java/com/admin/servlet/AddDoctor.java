@@ -33,13 +33,13 @@ public class AddDoctor extends HttpServlet {
 			
 			
 			Doctor doctor = new Doctor();
-            doctor.setName(name);
-            doctor.setDob(dob);
-            doctor.setQualification(qualification);
-            doctor.setSpecialist(specialist);
-            doctor.setEmail(email);
-            doctor.setMobile(mobile);
-            doctor.setPassword(password);
+            doctor.setDoctor_name(name);
+            doctor.setDoctor_dob(dob);
+            doctor.setDoctor_qualification(qualification);
+            doctor.setDoctor_specialist(specialist);
+            doctor.setDoctor_email(email);
+            doctor.setDoctor_mobile(mobile);
+            doctor.setDoctor_password(password);
 			
 			DoctorDao dao = new DoctorDao();
 			
