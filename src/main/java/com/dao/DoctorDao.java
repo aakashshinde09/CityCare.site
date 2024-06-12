@@ -129,9 +129,9 @@ public class DoctorDao {
 
         try {
             TypedQuery<Doctor> query = entityManager.createQuery(
-                "SELECT d FROM Doctor d WHERE d.email = :email AND d.password = :password", Doctor.class);
-            query.setParameter("email", email);
-            query.setParameter("password", password);
+                "SELECT d FROM Doctor d WHERE d.doctor_email = :doctor_email AND d.doctor_password = :doctor_password", Doctor.class);
+            query.setParameter("doctor_email", email);
+            query.setParameter("doctor_password", password);
 
             List<Doctor> resultList = query.getResultList();
             return resultList.isEmpty() ? null : resultList.get(0);

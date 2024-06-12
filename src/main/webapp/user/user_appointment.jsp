@@ -1,8 +1,7 @@
+
 <%@page import="com.entity.Doctor"%>
 <%@page import="java.util.List"%>
 <%@page import="com.dao.DoctorDao"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="com.db.DBConnect"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -27,7 +26,7 @@ img {
 .backImg{
 	background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),
 	url("../img/hospital.jpg");
-	height: 30vh;
+	height: 40vh;
 	width: 100%;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -65,7 +64,7 @@ img {
 
 						<form class="row g-3" action="add_appointment" method="post">
 
-							<input type="hidden" name="id" value="${userobj.id }">
+							<input type="hidden" name="id" value="${userobj.user_Id }">
 
 							<div class="col-md-6">
 								<label for="name" class="form-label">Full Name</label> <input
@@ -117,7 +116,7 @@ img {
 										for(Doctor d : list) {
 									%>
 									
-									<option value="<%=d.getId()%>"><%=d.getName() %> (<%=d.getSpecialist() %>)</option>
+									<option value="<%=d.getDoctor_Id()%>"><%=d.getDoctor_name() %> (<%=d.getDoctor_specialist() %>)</option>
 									
 									<%
 										}
