@@ -208,14 +208,14 @@
 							<div class="flex flex-col">
 								<label for="name" class="text-sm font-medium text-gray-700">Full
 									Name</label> <input type="text" name="name" id="name"
-									autocomplete="name" value="<%=d.getName() %>"
+									autocomplete="name" value="<%=d.getDoctor_name() %>"
 									class="form-control mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 							</div>
 
 							<div class="flex flex-col">
 								<label for="dob" class="text-sm font-medium text-gray-700">Date
 									of Birth</label> <input type="date" name="dob" id="dob"
-									autocomplete="dob" value=<%=d.getDob() %>
+									autocomplete="dob" value=<%=d.getDoctor_dob() %>
 									class="form-control mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 							</div>
 
@@ -224,7 +224,7 @@
 									class="block text-sm font-medium leading-6 text-gray-900">Qualification</label>
 
 								<input type="text" name="qualification" id="qualification"
-									autocomplete="qualification" value=<%=d.getQualification() %>
+									autocomplete="qualification" value=<%=d.getDoctor_qualification() %>
 									class="form-control mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
 
 							</div>
@@ -236,7 +236,7 @@
 								<select id="specialist" name="specialist"
 									autocomplete="specialist" 
 									class="form-control mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-									<option><%=d.getSpecialist() %></option>
+									<option><%=d.getDoctor_specialist() %></option>
 									
 									<option></option>
 									
@@ -249,7 +249,7 @@
 								<label for="city"
 									class="block text-sm font-medium leading-6 text-gray-900">Email</label>
 
-								<input type="email" name="email" id="email" autocomplete="email" value=<%=d.getEmail() %>
+								<input type="email" name="email" id="email" autocomplete="email" value=<%=d.getDoctor_email() %>
 									class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
 
 							</div>
@@ -258,7 +258,7 @@
 								<label for="mobile"
 									class="block text-sm font-medium leading-6 text-gray-900">Mobile
 									Number </label> <input type="text" name="mobile" id="mobile"
-									autocomplete="mobile" value=<%=d.getMobile() %>
+									autocomplete="mobile" value=<%=d.getDoctor_mobile() %>
 									class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
 
 							</div>
@@ -269,11 +269,11 @@
 									class="block text-sm font-medium leading-6 text-gray-900">Password</label>
 
 								<input type="text" name="password" id="password"
-									autocomplete="password" value=<%=d.getPassword() %>
+									autocomplete="password" value=<%=d.getDoctor_password() %>
 									class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
 
 							</div>
-							<input name="id" value=<%=d.getId() %> type="hidden">
+							<input name="id" value=<%=d.getDoctor_Id() %> type="hidden">
 						</div>
 					</div>
 

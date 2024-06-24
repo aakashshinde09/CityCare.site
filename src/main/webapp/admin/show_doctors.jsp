@@ -241,37 +241,37 @@
 					<tr>
 						<th
 							class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 text-left text-blueGray-700 ">
-							<%=d.getName()%>
+							<%=d.getDoctor_name()%>
 						</th>
 						<td
 							class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 ">
-							<%=d.getDob()%>
+							<%=d.getDoctor_dob()%>
 						</td>
 						<td
 							class="border-t-0 px-3 align-center border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
-							<%=d.getQualification()%>
+							<%=d.getDoctor_qualification()%>
 						</td>
 						<th
 							class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 text-left text-blueGray-700 ">
-							<%=d.getSpecialist()%>
+							<%=d.getDoctor_specialist()%>
 						</th>
 						<td
 							class="border-t-0 px-3 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 ">
-							<%=d.getEmail()%>
+							<%=d.getDoctor_email()%>
 						</td>
 						<td
 							class="border-t-0 px-3 align-center border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
-							<%=d.getMobile()%>
+							<%=d.getDoctor_mobile()%>
 						</td>
 						<td
 							class="border-t-0 px-3 align-center border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
-							<%=d.getPassword()%>
+							<%=d.getDoctor_password()%>
 						</td>
 						<td
 							class="border-t-0 px-6 align-center border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
-							<a href="update_doctor.jsp?id=<%=d.getId()%>"
+							<a href="update_doctor.jsp?id=<%=d.getDoctor_Id()%>"
 							class="btn btn-sm btn-primary">Update</a> <a
-							href="../deleteDoctor?id=<%=d.getId()%>"
+							href="../deleteDoctor?id=<%=d.getDoctor_Id()%>"
 							class="btn btn-sm btn-danger">Delete</a>
 
 						</td>
